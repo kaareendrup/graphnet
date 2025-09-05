@@ -5,8 +5,8 @@ models
 
 .. automodule:: graphnet.models
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Subpackages |end-h2|
@@ -15,10 +15,13 @@ models
    :maxdepth: 2
 
    graphnet.models.components
+   graphnet.models.data_representation
    graphnet.models.detector
    graphnet.models.gnn
    graphnet.models.graphs
+   graphnet.models.rnn
    graphnet.models.task
+   graphnet.models.transformer
 
 |start-h2| Submodules |end-h2|
 
@@ -27,7 +30,10 @@ models
    :maxdepth: 2
 
    graphnet.models.coarsening
+   graphnet.models.easy_model
    graphnet.models.model
+   graphnet.models.normalizing_flow
+   graphnet.models.standard_averaged_model
    graphnet.models.standard_model
    graphnet.models.utils
 

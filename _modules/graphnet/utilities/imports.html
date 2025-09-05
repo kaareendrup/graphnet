@@ -119,13 +119,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
     <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   
@@ -281,14 +280,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../../../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../../../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -324,19 +351,19 @@
   <h1 id="modules-graphnet-utilities-imports--page-root">Source code for graphnet.utilities.imports</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""Common functions for icetray/data-based unit tests."""</span>
 
-<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span>
 
-<span class="kn">from</span> <span class="nn">graphnet.utilities.logging</span> <span class="kn">import</span> <span class="n">Logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.utilities.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
 
 
 <div class="viewcode-block" id="has_icecube_package">
 <a class="viewcode-back" href="../../../api/graphnet.utilities.imports.html#graphnet.utilities.imports.has_icecube_package">[docs]</a>
-<span class="k">def</span> <span class="nf">has_icecube_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">has_icecube_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Check whether the `icecube` package is available."""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">icecube</span>  <span class="c1"># pyright: reportMissingImports=false</span>
-        <span class="kn">from</span> <span class="nn">icecube</span> <span class="kn">import</span> <span class="n">icetray</span><span class="p">,</span> <span class="n">dataio</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">icecube</span>  <span class="c1"># pyright: reportMissingImports=false</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">icecube</span><span class="w"> </span><span class="kn">import</span> <span class="n">icetray</span><span class="p">,</span> <span class="n">dataio</span>
 
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -349,10 +376,10 @@
 
 <div class="viewcode-block" id="has_torch_package">
 <a class="viewcode-back" href="../../../api/graphnet.utilities.imports.html#graphnet.utilities.imports.has_torch_package">[docs]</a>
-<span class="k">def</span> <span class="nf">has_torch_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">has_torch_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Check whether the `torch` package is available."""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">torch</span>  <span class="c1"># pyright: reportMissingImports=false</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>  <span class="c1"># pyright: reportMissingImports=false</span>
 
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
@@ -363,17 +390,18 @@
 
 
 
-<div class="viewcode-block" id="has_pisa_package">
-<a class="viewcode-back" href="../../../api/graphnet.utilities.imports.html#graphnet.utilities.imports.has_pisa_package">[docs]</a>
-<span class="k">def</span> <span class="nf">has_pisa_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">"""Check whether the `pisa` package is available."""</span>
+<div class="viewcode-block" id="has_jammy_flows_package">
+<a class="viewcode-back" href="../../../api/graphnet.utilities.imports.html#graphnet.utilities.imports.has_jammy_flows_package">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">has_jammy_flows_package</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Check if the `jammy_flows` package is available."""</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">pisa</span>  <span class="c1"># pyright: reportMissingImports=false</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">jammy_flows</span>  <span class="c1"># pyright: reportMissingImports=false</span>
 
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
         <span class="n">Logger</span><span class="p">(</span><span class="n">log_folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">warning_once</span><span class="p">(</span>
-            <span class="s2">"`pisa` not available. Some functionality may be missing."</span><span class="p">,</span>
+            <span class="s2">"`jammy_flows` not available. Normalizing Flow functionality is "</span>
+            <span class="s2">"missing."</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="kc">False</span></div>
 
@@ -381,16 +409,17 @@
 
 <div class="viewcode-block" id="requires_icecube">
 <a class="viewcode-back" href="../../../api/graphnet.utilities.imports.html#graphnet.utilities.imports.requires_icecube">[docs]</a>
-<span class="k">def</span> <span class="nf">requires_icecube</span><span class="p">(</span><span class="n">test_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">requires_icecube</span><span class="p">(</span><span class="n">test_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Decorate `test_function` for use only if `icecube` module is present."""</span>
 
     <span class="nd">@wraps</span><span class="p">(</span><span class="n">test_function</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">has_icecube_package</span><span class="p">():</span>
             <span class="k">return</span> <span class="n">test_function</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">Logger</span><span class="p">(</span><span class="n">log_folder</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"Function `</span><span class="si">{</span><span class="n">test_function</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">` not used since `icecube` isn't available."</span>
+                <span class="sa">f</span><span class="s2">"Function `</span><span class="si">{</span><span class="n">test_function</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">` "</span>
+                <span class="s2">"not used since `icecube` isn't available."</span>
             <span class="p">)</span>
             <span class="k">return</span>
 
@@ -416,11 +445,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

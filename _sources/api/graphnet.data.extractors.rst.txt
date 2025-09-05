@@ -5,8 +5,8 @@ extractors
 
 .. automodule:: graphnet.data.extractors
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Subpackages |end-h2|
@@ -14,7 +14,10 @@ extractors
 .. toctree::
    :maxdepth: 2
 
-   graphnet.data.extractors.utilities
+   graphnet.data.extractors.icecube
+   graphnet.data.extractors.internal
+   graphnet.data.extractors.liquido
+   graphnet.data.extractors.prometheus
 
 |start-h2| Submodules |end-h2|
 
@@ -22,18 +25,8 @@ extractors
 .. toctree::
    :maxdepth: 2
 
-   graphnet.data.extractors.i3extractor
-   graphnet.data.extractors.i3featureextractor
-   graphnet.data.extractors.i3genericextractor
-   graphnet.data.extractors.i3hybridrecoextractor
-   graphnet.data.extractors.i3ntmuonlabelsextractor
-   graphnet.data.extractors.i3particleextractor
-   graphnet.data.extractors.i3pisaextractor
-   graphnet.data.extractors.i3quesoextractor
-   graphnet.data.extractors.i3retroextractor
-   graphnet.data.extractors.i3splinempeextractor
-   graphnet.data.extractors.i3truthextractor
-   graphnet.data.extractors.i3tumextractor
+   graphnet.data.extractors.combine_extractors
+   graphnet.data.extractors.extractor
 
 
 

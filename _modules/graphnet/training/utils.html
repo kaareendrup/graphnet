@@ -119,13 +119,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
     <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   
@@ -281,14 +280,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../../../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../../../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -324,28 +351,28 @@
   <h1 id="modules-graphnet-training-utils--page-root">Source code for graphnet.training.utils</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""Utility functions for `graphnet.training`."""</span>
 
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Callable</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">pytorch_lightning</span> <span class="kn">import</span> <span class="n">Trainer</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">DataLoader</span>
-<span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">Data</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pytorch_lightning</span><span class="w"> </span><span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataLoader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Batch</span><span class="p">,</span> <span class="n">Data</span>
 
-<span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
-<span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">SQLiteDataset</span>
-<span class="kn">from</span> <span class="nn">graphnet.data.dataset</span> <span class="kn">import</span> <span class="n">ParquetDataset</span>
-<span class="kn">from</span> <span class="nn">graphnet.models</span> <span class="kn">import</span> <span class="n">Model</span>
-<span class="kn">from</span> <span class="nn">graphnet.utilities.logging</span> <span class="kn">import</span> <span class="n">Logger</span>
-<span class="kn">from</span> <span class="nn">graphnet.models.graphs</span> <span class="kn">import</span> <span class="n">GraphDefinition</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.data.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.data.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQLiteDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.data.dataset</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParquetDataset</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.utilities.logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models.graphs</span><span class="w"> </span><span class="kn">import</span> <span class="n">GraphDefinition</span>
 
 
 <div class="viewcode-block" id="collate_fn">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.collate_fn">[docs]</a>
-<span class="k">def</span> <span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Remove graphs with less than two DOM hits.</span>
 
 <span class="sd">    Should not occur in "production".</span>
@@ -357,10 +384,10 @@
 
 <div class="viewcode-block" id="collator_sequence_buckleting">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.collator_sequence_buckleting">[docs]</a>
-<span class="k">class</span> <span class="nc">collator_sequence_buckleting</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">collator_sequence_buckleting</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Perform the sequence bucketing for the graphs in the batch."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_splits</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch_splits</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">]):</span>
 <span class="w">        </span><span class="sd">"""Set cutting points of the different mini-batches.</span>
 
 <span class="sd">        batch_splits: list of floats, each element is the fraction of the total</span>
@@ -369,7 +396,7 @@
 <span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_splits</span> <span class="o">=</span> <span class="n">batch_splits</span>
 
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graphs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Data</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Batch</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Execute sequence bucketing on the input list of graphs.</span>
 
 <span class="sd">        Args:</span>
@@ -399,7 +426,7 @@
 <span class="c1"># @TODO: Remove in favour of DataLoader{,.from_dataset_config}</span>
 <div class="viewcode-block" id="make_dataloader">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_dataloader">[docs]</a>
-<span class="k">def</span> <span class="nf">make_dataloader</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_dataloader</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">pulsemaps</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span>
     <span class="n">graph_definition</span><span class="p">:</span> <span class="n">GraphDefinition</span><span class="p">,</span>
@@ -411,10 +438,10 @@
     <span class="n">selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
     <span class="n">persistent_workers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">node_truth</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">node_truth</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">truth_table</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"truth"</span><span class="p">,</span>
     <span class="n">node_truth_table</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">string_selection</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">string_selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">loss_weight_table</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">loss_weight_column</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">index_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"event_no"</span><span class="p">,</span>
@@ -463,7 +490,7 @@
 <span class="c1"># @TODO: Remove in favour of DataLoader{,.from_dataset_config}</span>
 <div class="viewcode-block" id="make_train_validation_dataloader">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.make_train_validation_dataloader">[docs]</a>
-<span class="k">def</span> <span class="nf">make_train_validation_dataloader</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">make_train_validation_dataloader</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">graph_definition</span><span class="p">:</span> <span class="n">GraphDefinition</span><span class="p">,</span>
     <span class="n">selection</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
@@ -506,7 +533,7 @@
                 <span class="n">truth_table</span><span class="o">=</span><span class="n">truth_table</span><span class="p">,</span>
                 <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
             <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">db</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".parquet"</span><span class="p">):</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="n">dataset</span> <span class="o">=</span> <span class="n">ParquetDataset</span><span class="p">(</span>
                 <span class="n">path</span><span class="o">=</span><span class="n">db</span><span class="p">,</span>
                 <span class="n">graph_definition</span><span class="o">=</span><span class="n">graph_definition</span><span class="p">,</span>
@@ -515,10 +542,6 @@
                 <span class="n">truth</span><span class="o">=</span><span class="n">truth</span><span class="p">,</span>
                 <span class="n">truth_table</span><span class="o">=</span><span class="n">truth_table</span><span class="p">,</span>
                 <span class="n">index_column</span><span class="o">=</span><span class="n">index_column</span><span class="p">,</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">"File </span><span class="si">{</span><span class="n">db</span><span class="si">}</span><span class="s2"> with format </span><span class="si">{</span><span class="n">db</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2"> not supported."</span>
             <span class="p">)</span>
         <span class="n">selection</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">_get_all_indices</span><span class="p">()</span>
 
@@ -582,7 +605,7 @@
 <span class="c1"># @TODO: Remove in favour of Model.predict{,_as_dataframe}</span>
 <div class="viewcode-block" id="get_predictions">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.get_predictions">[docs]</a>
-<span class="k">def</span> <span class="nf">get_predictions</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_predictions</span><span class="p">(</span>
     <span class="n">trainer</span><span class="p">:</span> <span class="n">Trainer</span><span class="p">,</span>
     <span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span>
     <span class="n">dataloader</span><span class="p">:</span> <span class="n">DataLoader</span><span class="p">,</span>
@@ -647,7 +670,7 @@
 <span class="c1"># @TODO: Remove</span>
 <div class="viewcode-block" id="save_results">
 <a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.save_results">[docs]</a>
-<span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_results</span><span class="p">(</span>
     <span class="n">db</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">archive</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">Model</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Save trained model and prediction `results` in `db`."""</span>
@@ -658,6 +681,24 @@
     <span class="n">model</span><span class="o">.</span><span class="n">save_state_dict</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s2">"_state_dict.pth"</span><span class="p">)</span>
     <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">"/"</span> <span class="o">+</span> <span class="n">tag</span> <span class="o">+</span> <span class="s2">"_model.pth"</span><span class="p">)</span>
     <span class="n">Logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Results saved at: </span><span class="se">\n</span><span class="s2"> </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="n">path</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="save_selection">
+<a class="viewcode-back" href="../../../api/graphnet.training.utils.html#graphnet.training.utils.save_selection">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_selection</span><span class="p">(</span><span class="n">selection</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Save the list of event numbers to a CSV file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">       selection: List of event ids.</span>
+<span class="sd">       file_path: File path to save the selection.</span>
+<span class="sd">    """</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span>
+        <span class="n">selection</span><span class="p">,</span> <span class="nb">list</span>
+    <span class="p">),</span> <span class="s2">"Selection should be a list of integers."</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">selection</span><span class="p">)))</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span></div>
 
 </pre></div>
 
@@ -679,11 +720,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

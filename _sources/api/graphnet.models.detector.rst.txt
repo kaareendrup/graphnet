@@ -5,8 +5,8 @@ detector
 
 .. automodule:: graphnet.models.detector
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Submodules |end-h2|
@@ -17,6 +17,7 @@ detector
 
    graphnet.models.detector.detector
    graphnet.models.detector.icecube
+   graphnet.models.detector.liquido
    graphnet.models.detector.prometheus
 
 

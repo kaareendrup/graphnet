@@ -120,13 +120,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="utilities" href="graphnet.utilities.html" />
@@ -285,14 +284,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -311,6 +338,13 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.datasets.html" class="md-nav__link">datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
       
     
@@ -318,14 +352,14 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      <a href="graphnet.exceptions.html" class="md-nav__link">exceptions</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
       
     
     </li>
@@ -481,46 +515,53 @@
 <p>Classes for fitting per-event weights for training.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">WeightFitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">WeightFitter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code>, <a class="reference internal" href="graphnet.utilities.logging.html#graphnet.utilities.logging.Logger" title="graphnet.utilities.logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a></p>
 <p>Produces per-event weights.</p>
-<p>Weights are returned by the public method <cite>fit_weights()</cite>, and the weights
-can be saved as a table in the database.</p>
+<p>Weights are returned by the public method <cite>fit_weights()</cite>, and the
+weights can be saved as a table in the database.</p>
 <p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
-<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
-<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>)</p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>)</p></li>
+<li><p><strong>index_column</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.WeightFitter.fit">
-<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to_database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.fit" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">variable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_to_database</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selection</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">db_count_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">automatic_log_bins</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_weight</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#WeightFitter.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.WeightFitter.fit" title="Link to this definition">¶</a></dt>
 <dd><p>Fit weights.</p>
 <p>Calls private <cite>_fit_weights</cite> method. Output is returned as a
 pandas.DataFrame and optionally saved to sql.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>bins</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Desired bins used for fitting.</p></li>
-<li><p><strong>variable</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – the name of the variable. Must match corresponding column
+<li><p><strong>bins</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span>) – Desired bins used for fitting.</p></li>
+<li><p><strong>variable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – the name of the variable. Must match corresponding column
 name in the truth table.</p></li>
-<li><p><strong>weight_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the weights.</p></li>
-<li><p><strong>add_to_database</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – If True, the weights are saved to sql in a table
+<li><p><strong>weight_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Name of the weights.</p></li>
+<li><p><strong>add_to_database</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – If True, the weights are saved to sql in a table
 named weight_name.</p></li>
-<li><p><strong>selection</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – a list of event_no’s. If given, only events in the
+<li><p><strong>selection</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – a list of event_no’s. If given, only events in the
 selection is used for fitting.</p></li>
-<li><p><strong>transform</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>], default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – A callable method that transform the variable into a
+<li><p><strong>transform</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – A callable method that transform the variable into a
 desired space. E.g. np.log10 for energy. If given, fitting will
 happen in this space.</p></li>
-<li><p><strong>**kwargs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>) – Additional arguments passed to <cite>_fit_weights</cite>.</p></li>
+<li><p><strong>db_count_norm</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If given, the total sum of the weights for the given
+db will be this number.</p></li>
+<li><p><strong>automatic_log_bins</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – If True, the bins are generated as a log10
+space between the min and max of the variable.</p></li>
+<li><p><strong>max_weight</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – If given, the weights are capped such that a single
+event weight cannot exceed this number times the sum of
+all weights.</p></li>
+<li><p><strong>**kwargs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>) – Additional arguments passed to <cite>_fit_weights</cite>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>DataFrame that contains weights, event_nos.</p>
@@ -530,34 +571,34 @@ happen in this space.</p></li>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.Uniform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">Uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">Uniform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#Uniform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.Uniform" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.weight_fitting.WeightFitter" title="graphnet.training.weight_fitting.WeightFitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightFitter</span></code></a></p>
 <p>Produces per-event weights making variable distribution uniform.</p>
 <p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
-<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
-<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>)</p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>)</p></li>
+<li><p><strong>index_column</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.training.weight_fitting.BjoernLow">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">BjoernLow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#BjoernLow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.BjoernLow" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.training.weight_fitting.</span></span><span class="sig-name descname"><span class="pre">BjoernLow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">database_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">truth_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/training/weight_fitting.html#BjoernLow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.training.weight_fitting.BjoernLow" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#graphnet.training.weight_fitting.WeightFitter" title="graphnet.training.weight_fitting.WeightFitter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightFitter</span></code></a></p>
 <p>Produces per-event weights.</p>
-<p>Events below x_low are weighted to be uniform, whereas events above x_low
-are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
+<p>Events below x_low are weighted to be uniform, whereas events above
+x_low are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
 <p>Construct <cite>UniformWeightFitter</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>database_path</strong> (<em>str</em>) – </p></li>
-<li><p><strong>truth_table</strong> (<em>str</em>) – </p></li>
-<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
+<li><p><strong>database_path</strong> (<em>str</em>)</p></li>
+<li><p><strong>truth_table</strong> (<em>str</em>)</p></li>
+<li><p><strong>index_column</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -607,11 +648,11 @@ are weighted to follow a 1/(1+a*(x_low -x)) curve.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

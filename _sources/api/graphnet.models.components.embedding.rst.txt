@@ -1,0 +1,8 @@
+
+embedding
+=========
+
+.. automodule:: graphnet.models.components.embedding
+   :members:
+   :show-inheritance:
+   :undoc-members:

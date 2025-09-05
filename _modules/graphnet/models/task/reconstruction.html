@@ -119,13 +119,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
     <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   
@@ -281,14 +280,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../../../../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../../../../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -324,17 +351,17 @@
   <h1 id="modules-graphnet-models-task-reconstruction--page-root">Source code for graphnet.models.task.reconstruction</h1><div class="highlight"><pre>
 <span></span><span class="sd">"""Reconstruction-specific `Model` class(es)."""</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span>
 
-<span class="kn">from</span> <span class="nn">graphnet.models.task</span> <span class="kn">import</span> <span class="n">Task</span>
-<span class="kn">from</span> <span class="nn">graphnet.utilities.maths</span> <span class="kn">import</span> <span class="n">eps_like</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models.task</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardLearnedTask</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.utilities.maths</span><span class="w"> </span><span class="kn">import</span> <span class="n">eps_like</span>
 
 
 <div class="viewcode-block" id="AzimuthReconstructionWithKappa">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.AzimuthReconstructionWithKappa">[docs]</a>
-<span class="k">class</span> <span class="nc">AzimuthReconstructionWithKappa</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AzimuthReconstructionWithKappa</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs azimuthal angle and associated kappa (1/var)."""</span>
 
     <span class="c1"># Requires two features: untransformed points in (x,y)-space.</span>
@@ -342,7 +369,7 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"azimuth_pred"</span><span class="p">,</span> <span class="s2">"azimuth_kappa"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform outputs to angle and prepare prediction</span>
         <span class="n">kappa</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
@@ -355,7 +382,7 @@
 
 <div class="viewcode-block" id="AzimuthReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.AzimuthReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">AzimuthReconstruction</span><span class="p">(</span><span class="n">AzimuthReconstructionWithKappa</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">AzimuthReconstruction</span><span class="p">(</span><span class="n">AzimuthReconstructionWithKappa</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs azimuthal angle."""</span>
 
     <span class="c1"># Requires two features: untransformed points in (x,y)-space.</span>
@@ -363,7 +390,7 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"azimuth_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform outputs to angle and prepare prediction</span>
         <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="n">res</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -378,13 +405,12 @@
 
 <div class="viewcode-block" id="DirectionReconstructionWithKappa">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.DirectionReconstructionWithKappa">[docs]</a>
-<span class="k">class</span> <span class="nc">DirectionReconstructionWithKappa</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectionReconstructionWithKappa</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs direction with kappa from the 3D-vMF distribution."""</span>
 
     <span class="c1"># Requires three features: untransformed points in (x,y,z)-space.</span>
-    <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">"direction"</span>
-    <span class="p">]</span>  <span class="c1"># contains dir_x, dir_y, dir_z see https://github.com/graphnet-team/graphnet/blob/95309556cfd46a4046bc4bd7609888aab649e295/src/graphnet/training/labels.py#L29</span>
+    <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"direction"</span><span class="p">]</span>  <span class="c1"># contains dir_x, dir_y, dir_z</span>
+    <span class="c1"># see Direction label in /src/graphnet/training/labels.py</span>
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">"dir_x_pred"</span><span class="p">,</span>
         <span class="s2">"dir_y_pred"</span><span class="p">,</span>
@@ -393,7 +419,7 @@
     <span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">3</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform outputs to angle and prepare prediction</span>
         <span class="n">kappa</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">vec_x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">kappa</span>
@@ -405,7 +431,7 @@
 
 <div class="viewcode-block" id="ZenithReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.ZenithReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">ZenithReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ZenithReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs zenith angle."""</span>
 
     <span class="c1"># Requires two features: zenith angle itself.</span>
@@ -413,7 +439,7 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"zenith_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform outputs to angle and prepare prediction</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span></div>
 
@@ -421,15 +447,16 @@
 
 <div class="viewcode-block" id="ZenithReconstructionWithKappa">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.ZenithReconstructionWithKappa">[docs]</a>
-<span class="k">class</span> <span class="nc">ZenithReconstructionWithKappa</span><span class="p">(</span><span class="n">ZenithReconstruction</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ZenithReconstructionWithKappa</span><span class="p">(</span><span class="n">ZenithReconstruction</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs zenith angle and associated kappa (1/var)."""</span>
 
-    <span class="c1"># Requires one feature in addition to `ZenithReconstruction`: kappa (unceratinty; 1/variance).</span>
+    <span class="c1"># Requires one feature in addition to `ZenithReconstruction`:</span>
+    <span class="c1"># kappa (unceratinty; 1/variance).</span>
     <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"zenith"</span><span class="p">]</span>
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"zenith_pred"</span><span class="p">,</span> <span class="s2">"zenith_kappa"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform outputs to angle and prepare prediction</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">kappa</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -439,7 +466,7 @@
 
 <div class="viewcode-block" id="EnergyReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.EnergyReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">EnergyReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnergyReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs energy using stable method."""</span>
 
     <span class="c1"># Requires one feature: untransformed energy</span>
@@ -447,7 +474,7 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform to positive energy domain avoiding `-inf` in `log10`</span>
         <span class="c1"># Transform, thereby preventing overflow and underflow error.</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
@@ -456,7 +483,7 @@
 
 <div class="viewcode-block" id="EnergyReconstructionWithPower">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.EnergyReconstructionWithPower">[docs]</a>
-<span class="k">class</span> <span class="nc">EnergyReconstructionWithPower</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnergyReconstructionWithPower</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs energy."""</span>
 
     <span class="c1"># Requires one feature: untransformed energy</span>
@@ -464,23 +491,47 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform energy</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></div>
 
 
 
+<div class="viewcode-block" id="EnergyTCReconstruction">
+<a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.EnergyTCReconstruction">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnergyTCReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reconstructs track and cascade energies using stable method."""</span>
+
+    <span class="c1"># Requires two features: untransformed energy for track and cascade</span>
+    <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy_track"</span><span class="p">,</span> <span class="s2">"energy_cascade"</span><span class="p">]</span>
+    <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy_track_pred"</span><span class="p">,</span> <span class="s2">"energy_cascade_pred"</span><span class="p">]</span>
+    <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">2</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+        <span class="c1"># Transform to positive energy domain avoiding `-inf` in `log10`</span>
+        <span class="c1"># Transform, thereby preventing overflow and underflow error.</span>
+        <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.05</span>
+        <span class="p">)</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+        <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">softplus</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.05</span>
+        <span class="p">)</span> <span class="o">+</span> <span class="n">eps_like</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">x</span></div>
+
+
+
 <div class="viewcode-block" id="EnergyReconstructionWithUncertainty">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.EnergyReconstructionWithUncertainty">[docs]</a>
-<span class="k">class</span> <span class="nc">EnergyReconstructionWithUncertainty</span><span class="p">(</span><span class="n">EnergyReconstruction</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">EnergyReconstructionWithUncertainty</span><span class="p">(</span><span class="n">EnergyReconstruction</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs energy and associated uncertainty (log(var))."""</span>
 
-    <span class="c1"># Requires one feature in addition to `EnergyReconstruction`: log-variance (uncertainty).</span>
+    <span class="c1"># Requires one feature in addition to `EnergyReconstruction`:</span>
+    <span class="c1"># log-variance (uncertainty).</span>
     <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy"</span><span class="p">]</span>
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"energy_pred"</span><span class="p">,</span> <span class="s2">"energy_sigma"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">2</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform energy</span>
         <span class="n">energy</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">log_var</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
@@ -491,7 +542,7 @@
 
 <div class="viewcode-block" id="VertexReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.VertexReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">VertexReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">VertexReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs vertex position and time."""</span>
 
     <span class="c1"># Requires four features, x, y, z, and t.</span>
@@ -504,7 +555,7 @@
     <span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">4</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Scale xyz to roughly the right order of magnitude, leave time</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e2</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e2</span>
@@ -516,7 +567,7 @@
 
 <div class="viewcode-block" id="PositionReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.PositionReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">PositionReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PositionReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs vertex position."""</span>
 
     <span class="c1"># Requires three features, x, y, and z.</span>
@@ -528,7 +579,7 @@
     <span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">3</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Scale to roughly the right order of magnitude</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e2</span>
         <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1e2</span>
@@ -540,7 +591,7 @@
 
 <div class="viewcode-block" id="TimeReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.TimeReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">TimeReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs time."""</span>
 
     <span class="c1"># Requires one feature, time.</span>
@@ -548,7 +599,7 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"interaction_time_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Leave as it is</span>
         <span class="k">return</span> <span class="n">x</span></div>
 
@@ -556,7 +607,7 @@
 
 <div class="viewcode-block" id="InelasticityReconstruction">
 <a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.InelasticityReconstruction">[docs]</a>
-<span class="k">class</span> <span class="nc">InelasticityReconstruction</span><span class="p">(</span><span class="n">Task</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InelasticityReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""Reconstructs interaction inelasticity.</span>
 
 <span class="sd">    That is, 1-(track energy / hadronic energy).</span>
@@ -567,9 +618,28 @@
     <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"inelasticity_pred"</span><span class="p">]</span>
     <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
 
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
         <span class="c1"># Transform output to unit range</span>
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="VisibleInelasticityReconstruction">
+<a class="viewcode-back" href="../../../../api/graphnet.models.task.reconstruction.html#graphnet.models.task.reconstruction.VisibleInelasticityReconstruction">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">VisibleInelasticityReconstruction</span><span class="p">(</span><span class="n">StandardLearnedTask</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reconstructs interaction visible inelasticity.</span>
+
+<span class="sd">    That is, 1-(visible track energy / visible hadronic energy).</span>
+<span class="sd">    """</span>
+
+    <span class="c1"># Requires one features: inelasticity itself</span>
+    <span class="n">default_target_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"visible_inelasticity"</span><span class="p">]</span>
+    <span class="n">default_prediction_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"visible_inelasticity_pred"</span><span class="p">]</span>
+    <span class="n">nb_inputs</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+        <span class="c1"># Transform output to unit range</span>
+        <span class="k">return</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span></div>
 
 </pre></div>
 
@@ -591,11 +661,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

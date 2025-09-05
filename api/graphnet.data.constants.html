@@ -120,17 +120,16 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dataconverter" href="graphnet.data.dataconverter.html" />
-    <link rel="prev" title="string_selection_resolver" href="graphnet.data.utilities.string_selection_resolver.html" />
+    <link rel="next" title="curated_datamodule" href="graphnet.data.curated_datamodule.html" />
+    <link rel="prev" title="sqlite_writer" href="graphnet.data.writers.sqlite_writer.html" />
   
    
 
@@ -285,14 +284,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -330,6 +357,20 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.data.pre_configured.html" class="md-nav__link">pre_configured</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.readers.html" class="md-nav__link">readers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.data.sqlite.html" class="md-nav__link">sqlite</a>
       
     
@@ -338,6 +379,13 @@
     
     
       <a href="graphnet.data.utilities.html" class="md-nav__link">utilities</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.writers.html" class="md-nav__link">writers</a>
       
     
     </li>
@@ -365,7 +413,11 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.PROMETHEUS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PROMETHEUS</span></code></a>
         </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+        </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -379,7 +431,11 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.PROMETHEUS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PROMETHEUS</span></code></a>
         </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+        </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -424,7 +480,21 @@
     <li class="md-nav__item">
     
     
+      <a href="#graphnet.data.constants.FEATURES.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="#graphnet.data.constants.FEATURES.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.data.constants.FEATURES.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
       
     
     </li></ul>
@@ -466,12 +536,40 @@
     <li class="md-nav__item">
     
     
+      <a href="#graphnet.data.constants.TRUTH.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="#graphnet.data.constants.TRUTH.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.data.constants.TRUTH.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
       
     
     </li></ul>
     
     </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.curated_datamodule.html" class="md-nav__link">curated_datamodule</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.dataclasses.html" class="md-nav__link">dataclasses</a>
+      
     
     </li>
     <li class="md-nav__item">
@@ -491,17 +589,17 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.filters.html" class="md-nav__link">filters</a>
+      <a href="graphnet.data.datamodule.html" class="md-nav__link">datamodule</a>
       
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.pipeline.html" class="md-nav__link">pipeline</a>
+      <a href="graphnet.datasets.html" class="md-nav__link">datasets</a>
       
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -514,14 +612,14 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      <a href="graphnet.exceptions.html" class="md-nav__link">exceptions</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
       
     
     </li>
@@ -574,7 +672,11 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.PROMETHEUS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PROMETHEUS</span></code></a>
         </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+        </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.FEATURES.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -588,7 +690,11 @@
         </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.PROMETHEUS" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">PROMETHEUS</span></code></a>
         </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.SNOWSTORM" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">SNOWSTORM</span></code></a>
+        </li>
         <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.KAGGLE" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">KAGGLE</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.data.constants.TRUTH.LIQUIDO" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">LIQUIDO</span></code></a>
         </li></ul>
             </nav>
         </li></ul>
@@ -608,7 +714,7 @@
 <p>Global constants that are used with <cite>graphnet.data</cite>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.data.constants.FEATURES">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.constants.</span></span><span class="sig-name descname"><span class="pre">FEATURES</span></span><a class="reference internal" href="../_modules/graphnet/data/constants.html#FEATURES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.constants.FEATURES" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.constants.</span></span><span class="sig-name descname"><span class="pre">FEATURES</span></span><a class="reference internal" href="../_modules/graphnet/data/constants.html#FEATURES"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.constants.FEATURES" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Namespace for standard names working with <cite>I3FeatureExtractor</cite>.</p>
 <dl class="py attribute">
@@ -628,34 +734,50 @@
 <span class="sig-name descname"><span class="pre">PROMETHEUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['sensor_pos_x',</span> <span class="pre">'sensor_pos_y',</span> <span class="pre">'sensor_pos_z',</span> <span class="pre">'t']</span></em><a class="headerlink" href="#graphnet.data.constants.FEATURES.PROMETHEUS" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="graphnet.data.constants.FEATURES.SNOWSTORM">
+<span class="sig-name descname"><span class="pre">SNOWSTORM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['dom_x',</span> <span class="pre">'dom_y',</span> <span class="pre">'dom_z',</span> <span class="pre">'charge',</span> <span class="pre">'dom_time',</span> <span class="pre">'width',</span> <span class="pre">'pmt_area',</span> <span class="pre">'rde',</span> <span class="pre">'is_bright_dom',</span> <span class="pre">'is_bad_dom',</span> <span class="pre">'is_saturated_dom',</span> <span class="pre">'is_errata_dom',</span> <span class="pre">'event_time',</span> <span class="pre">'hlc',</span> <span class="pre">'awtd',</span> <span class="pre">'string',</span> <span class="pre">'pmt_number',</span> <span class="pre">'dom_number',</span> <span class="pre">'dom_type']</span></em><a class="headerlink" href="#graphnet.data.constants.FEATURES.SNOWSTORM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.FEATURES.KAGGLE">
 <span class="sig-name descname"><span class="pre">KAGGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['x',</span> <span class="pre">'y',</span> <span class="pre">'z',</span> <span class="pre">'time',</span> <span class="pre">'charge',</span> <span class="pre">'auxiliary']</span></em><a class="headerlink" href="#graphnet.data.constants.FEATURES.KAGGLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graphnet.data.constants.FEATURES.LIQUIDO">
+<span class="sig-name descname"><span class="pre">LIQUIDO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['sipm_x',</span> <span class="pre">'sipm_y',</span> <span class="pre">'sipm_z',</span> <span class="pre">'t']</span></em><a class="headerlink" href="#graphnet.data.constants.FEATURES.LIQUIDO" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.constants.</span></span><span class="sig-name descname"><span class="pre">TRUTH</span></span><a class="reference internal" href="../_modules/graphnet/data/constants.html#TRUTH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.constants.TRUTH" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.constants.</span></span><span class="sig-name descname"><span class="pre">TRUTH</span></span><a class="reference internal" href="../_modules/graphnet/data/constants.html#TRUTH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.constants.TRUTH" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Namespace for standard names working with <cite>I3TruthExtractor</cite>.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.ICECUBE86">
-<span class="sig-name descname"><span class="pre">ICECUBE86</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'sim_type',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.ICECUBE86" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">ICECUBE86</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'energy_cascade',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'visible_inelasticity',</span> <span class="pre">'visible_energy',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.ICECUBE86" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.DEEPCORE">
-<span class="sig-name descname"><span class="pre">DEEPCORE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'sim_type',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.DEEPCORE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">DEEPCORE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'energy_cascade',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'visible_inelasticity',</span> <span class="pre">'visible_energy',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.DEEPCORE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.UPGRADE">
-<span class="sig-name descname"><span class="pre">UPGRADE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'sim_type',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.UPGRADE" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">UPGRADE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'energy_track',</span> <span class="pre">'energy_cascade',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'elasticity',</span> <span class="pre">'interaction_type',</span> <span class="pre">'interaction_time',</span> <span class="pre">'inelasticity',</span> <span class="pre">'visible_inelasticity',</span> <span class="pre">'visible_energy',</span> <span class="pre">'stopped_muon']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.UPGRADE" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.PROMETHEUS">
 <span class="sig-name descname"><span class="pre">PROMETHEUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['injection_energy',</span> <span class="pre">'injection_type',</span> <span class="pre">'injection_interaction_type',</span> <span class="pre">'injection_zenith',</span> <span class="pre">'injection_azimuth',</span> <span class="pre">'injection_bjorkenx',</span> <span class="pre">'injection_bjorkeny',</span> <span class="pre">'injection_position_x',</span> <span class="pre">'injection_position_y',</span> <span class="pre">'injection_position_z',</span> <span class="pre">'injection_column_depth',</span> <span class="pre">'primary_lepton_1_type',</span> <span class="pre">'primary_hadron_1_type',</span> <span class="pre">'primary_lepton_1_position_x',</span> <span class="pre">'primary_lepton_1_position_y',</span> <span class="pre">'primary_lepton_1_position_z',</span> <span class="pre">'primary_hadron_1_position_x',</span> <span class="pre">'primary_hadron_1_position_y',</span> <span class="pre">'primary_hadron_1_position_z',</span> <span class="pre">'primary_lepton_1_direction_theta',</span> <span class="pre">'primary_lepton_1_direction_phi',</span> <span class="pre">'primary_hadron_1_direction_theta',</span> <span class="pre">'primary_hadron_1_direction_phi',</span> <span class="pre">'primary_lepton_1_energy',</span> <span class="pre">'primary_hadron_1_energy',</span> <span class="pre">'total_energy']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.PROMETHEUS" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.SNOWSTORM">
+<span class="sig-name descname"><span class="pre">SNOWSTORM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'position_x',</span> <span class="pre">'position_y',</span> <span class="pre">'position_z',</span> <span class="pre">'azimuth',</span> <span class="pre">'zenith',</span> <span class="pre">'pid',</span> <span class="pre">'event_time',</span> <span class="pre">'interaction_type',</span> <span class="pre">'elasticity',</span> <span class="pre">'RunID',</span> <span class="pre">'SubrunID',</span> <span class="pre">'EventID',</span> <span class="pre">'SubEventID',</span> <span class="pre">'dbang_decay_length',</span> <span class="pre">'track_length',</span> <span class="pre">'stopped_muon',</span> <span class="pre">'energy_track',</span> <span class="pre">'energy_cascade',</span> <span class="pre">'inelasticity',</span> <span class="pre">'DeepCoreFilter_13',</span> <span class="pre">'CascadeFilter_13',</span> <span class="pre">'MuonFilter_13',</span> <span class="pre">'OnlineL2Filter_17',</span> <span class="pre">'L3_oscNext_bool',</span> <span class="pre">'L4_oscNext_bool',</span> <span class="pre">'L5_oscNext_bool',</span> <span class="pre">'L6_oscNext_bool',</span> <span class="pre">'L7_oscNext_bool',</span> <span class="pre">'Homogenized_QTot',</span> <span class="pre">'MCLabelClassification',</span> <span class="pre">'MCLabelCoincidentMuons',</span> <span class="pre">'MCLabelBgMuonMCPE',</span> <span class="pre">'MCLabelBgMuonMCPECharge',</span> <span class="pre">'GNLabelTrackEnergyDeposited',</span> <span class="pre">'GNLabelTrackEnergyOnEntrance',</span> <span class="pre">'GNLabelTrackEnergyOnEntrancePrimary',</span> <span class="pre">'GNLabelTrackEnergyDepositedPrimary',</span> <span class="pre">'GNLabelEnergyPrimary',</span> <span class="pre">'GNLabelCascadeEnergyDepositedPrimary',</span> <span class="pre">'GNLabelCascadeEnergyDeposited',</span> <span class="pre">'GNLabelEnergyDepositedTotal',</span> <span class="pre">'GNLabelEnergyDepositedPrimary',</span> <span class="pre">'GNLabelHighestEInIceParticleIsChild',</span> <span class="pre">'GNLabelHighestEInIceParticleDistance',</span> <span class="pre">'GNLabelHighestEInIceParticleEFraction',</span> <span class="pre">'GNLabelHighestEInIceParticleEOnEntrance',</span> <span class="pre">'GNLabelHighestEDaughterDistance',</span> <span class="pre">'GNLabelHighestEDaughterEFraction']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.SNOWSTORM" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
 <dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.KAGGLE">
 <span class="sig-name descname"><span class="pre">KAGGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['zenith',</span> <span class="pre">'azimuth']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.KAGGLE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="graphnet.data.constants.TRUTH.LIQUIDO">
+<span class="sig-name descname"><span class="pre">LIQUIDO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['vertex_x',</span> <span class="pre">'vertex_y',</span> <span class="pre">'vertex_z',</span> <span class="pre">'zenith',</span> <span class="pre">'azimuth',</span> <span class="pre">'interaction_time',</span> <span class="pre">'energy',</span> <span class="pre">'pid']</span></em><a class="headerlink" href="#graphnet.data.constants.TRUTH.LIQUIDO" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 </dd></dl>
 </section>
@@ -670,7 +792,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.data.utilities.string_selection_resolver.html" title="string_selection_resolver"
+            <a href="graphnet.data.writers.sqlite_writer.html" title="sqlite_writer"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -679,17 +801,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> string_selection_resolver </span>
+                      class="md-footer-nav__direction"> "Previous" </span> sqlite_writer </span>
               </div>
             </a>
           
           
-            <a href="graphnet.data.dataconverter.html" title="dataconverter"
+            <a href="graphnet.data.curated_datamodule.html" title="curated_datamodule"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> dataconverter </span>
+                class="md-footer-nav__direction"> "Next" </span> curated_datamodule </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -703,11 +825,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

@@ -119,13 +119,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/material.css?v=79c92029" />
     <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../../../../about.html" />
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
   
@@ -281,14 +280,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../../../../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../../../../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -332,18 +359,17 @@
 <span class="sd">Solution by TITO.</span>
 <span class="sd">"""</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Optional</span>
 
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">LongTensor</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">LongTensor</span>
 
-<span class="kn">from</span> <span class="nn">torch_geometric.data</span> <span class="kn">import</span> <span class="n">Data</span>
-<span class="kn">from</span> <span class="nn">torch_scatter</span> <span class="kn">import</span> <span class="n">scatter_max</span><span class="p">,</span> <span class="n">scatter_mean</span><span class="p">,</span> <span class="n">scatter_min</span><span class="p">,</span> <span class="n">scatter_sum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch_geometric.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">Data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch_scatter</span><span class="w"> </span><span class="kn">import</span> <span class="n">scatter_max</span><span class="p">,</span> <span class="n">scatter_mean</span><span class="p">,</span> <span class="n">scatter_min</span><span class="p">,</span> <span class="n">scatter_sum</span>
 
-<span class="kn">from</span> <span class="nn">graphnet.models.components.layers</span> <span class="kn">import</span> <span class="n">DynTrans</span>
-<span class="kn">from</span> <span class="nn">graphnet.utilities.config</span> <span class="kn">import</span> <span class="n">save_model_config</span>
-<span class="kn">from</span> <span class="nn">graphnet.models.gnn.gnn</span> <span class="kn">import</span> <span class="n">GNN</span>
-<span class="kn">from</span> <span class="nn">graphnet.models.utils</span> <span class="kn">import</span> <span class="n">calculate_xyzt_homophily</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models.components.layers</span><span class="w"> </span><span class="kn">import</span> <span class="n">DynTrans</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models.gnn.gnn</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNN</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">graphnet.models.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">calculate_xyzt_homophily</span>
 
 <span class="n">GLOBAL_POOLINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"min"</span><span class="p">:</span> <span class="n">scatter_min</span><span class="p">,</span>
@@ -355,18 +381,21 @@
 
 <div class="viewcode-block" id="DynEdgeTITO">
 <a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge_kaggle_tito.html#graphnet.models.gnn.dynedge_kaggle_tito.DynEdgeTITO">[docs]</a>
-<span class="k">class</span> <span class="nc">DynEdgeTITO</span><span class="p">(</span><span class="n">GNN</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DynEdgeTITO</span><span class="p">(</span><span class="n">GNN</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">"""DynEdgeTITO (dynamical edge convolutional with Transformer) model."""</span>
 
-    <span class="nd">@save_model_config</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">nb_inputs</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">features_subset</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">features_subset</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">dyntrans_layer_sizes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">global_pooling_schemes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"max"</span><span class="p">],</span>
         <span class="n">use_global_features</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">use_post_processing_layers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">post_processing_layer_sizes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">readout_layer_sizes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">n_head</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
+        <span class="n">nb_neighbours</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">"""Construct `DynEdgeTITO`.</span>
 
@@ -383,6 +412,13 @@
 <span class="sd">            use_global_features: Whether to use global features after pooling.</span>
 <span class="sd">            use_post_processing_layers: Whether to use post-processing layers</span>
 <span class="sd">                after the `DynTrans` layers.</span>
+<span class="sd">            post_processing_layer_sizes: The layer sizes used in the</span>
+<span class="sd">                post-processing layers. Defaults to [336, 256].</span>
+<span class="sd">            readout_layer_sizes: The layer sizes used in the readout layers.</span>
+<span class="sd">                Defaults to [256, 128].</span>
+<span class="sd">            n_head: The number of heads to use in the `DynTrans` layer.</span>
+<span class="sd">            nb_neighbours: The number of neighbours to use in the `DynTrans`</span>
+<span class="sd">                layer.</span>
 <span class="sd">        """</span>
         <span class="c1"># DynTrans layer sizes</span>
         <span class="k">if</span> <span class="n">dyntrans_layer_sizes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -416,18 +452,20 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_dyntrans_layer_sizes</span> <span class="o">=</span> <span class="n">dyntrans_layer_sizes</span>
 
         <span class="c1"># Post-processing layer sizes</span>
-        <span class="n">post_processing_layer_sizes</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="mi">336</span><span class="p">,</span>
-            <span class="mi">256</span><span class="p">,</span>
-        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">post_processing_layer_sizes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">post_processing_layer_sizes</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="mi">336</span><span class="p">,</span>
+                <span class="mi">256</span><span class="p">,</span>
+            <span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_post_processing_layer_sizes</span> <span class="o">=</span> <span class="n">post_processing_layer_sizes</span>
 
         <span class="c1"># Read-out layer sizes</span>
-        <span class="n">readout_layer_sizes</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="mi">256</span><span class="p">,</span>
-            <span class="mi">128</span><span class="p">,</span>
-        <span class="p">]</span>
+        <span class="k">if</span> <span class="n">readout_layer_sizes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">readout_layer_sizes</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="mi">256</span><span class="p">,</span>
+                <span class="mi">128</span><span class="p">,</span>
+            <span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_readout_layer_sizes</span> <span class="o">=</span> <span class="n">readout_layer_sizes</span>
 
@@ -457,13 +495,14 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_activation</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">LeakyReLU</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_nb_inputs</span> <span class="o">=</span> <span class="n">nb_inputs</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_nb_global_variables</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">nb_inputs</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_neighbours</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_nb_neighbours</span> <span class="o">=</span> <span class="n">nb_neighbours</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_features_subset</span> <span class="o">=</span> <span class="n">features_subset</span> <span class="ow">or</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_use_global_features</span> <span class="o">=</span> <span class="n">use_global_features</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_use_post_processing_layers</span> <span class="o">=</span> <span class="n">use_post_processing_layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_head</span> <span class="o">=</span> <span class="n">n_head</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_construct_layers</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_construct_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_construct_layers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Construct layers (torch.nn.Modules)."""</span>
         <span class="c1"># Convolutional operations</span>
         <span class="n">nb_input_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nb_inputs</span>
@@ -475,7 +514,7 @@
                 <span class="p">[</span><span class="n">nb_latent_features</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">sizes</span><span class="p">),</span>
                 <span class="n">aggr</span><span class="o">=</span><span class="s2">"max"</span><span class="p">,</span>
                 <span class="n">features_subset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_features_subset</span><span class="p">,</span>
-                <span class="n">n_head</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+                <span class="n">n_head</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_n_head</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_conv_layers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">conv_layer</span><span class="p">)</span>
             <span class="n">nb_latent_features</span> <span class="o">=</span> <span class="n">sizes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
@@ -514,7 +553,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_readout</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="o">*</span><span class="n">readout_layers</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_global_pooling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_global_pooling</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Perform global pooling."""</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">_global_pooling_schemes</span>
         <span class="n">pooled</span> <span class="o">=</span> <span class="p">[]</span>
@@ -529,7 +568,7 @@
 
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">pooled</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_calculate_global_variables</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_calculate_global_variables</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
         <span class="n">edge_index</span><span class="p">:</span> <span class="n">LongTensor</span><span class="p">,</span>
@@ -560,7 +599,7 @@
 
 <div class="viewcode-block" id="DynEdgeTITO.forward">
 <a class="viewcode-back" href="../../../../api/graphnet.models.gnn.dynedge_kaggle_tito.html#graphnet.models.gnn.dynedge_kaggle_tito.DynEdgeTITO.forward">[docs]</a>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Data</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">"""Apply learnable forward pass."""</span>
         <span class="c1"># Convenience variables</span>
         <span class="n">x</span><span class="p">,</span> <span class="n">edge_index</span><span class="p">,</span> <span class="n">batch</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">edge_index</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">batch</span>
@@ -617,11 +656,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

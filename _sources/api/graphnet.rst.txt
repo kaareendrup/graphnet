@@ -5,8 +5,8 @@ API
 
 .. automodule:: graphnet
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Subpackages |end-h2|
@@ -15,9 +15,10 @@ API
    :maxdepth: 2
 
    graphnet.data
+   graphnet.datasets
    graphnet.deployment
+   graphnet.exceptions
    graphnet.models
-   graphnet.pisa
    graphnet.training
    graphnet.utilities
 

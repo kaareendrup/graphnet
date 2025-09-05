@@ -120,17 +120,16 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="constants" href="graphnet.data.constants.html" />
-    <link rel="prev" title="random" href="graphnet.data.utilities.random.html" />
+    <link rel="next" title="writers" href="graphnet.data.writers.html" />
+    <link rel="prev" title="sqlite_utilities" href="graphnet.data.utilities.sqlite_utilities.html" />
   
    
 
@@ -286,14 +285,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -331,6 +358,20 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.data.pre_configured.html" class="md-nav__link">pre_configured</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.readers.html" class="md-nav__link">readers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.data.sqlite.html" class="md-nav__link">sqlite</a>
       
     
@@ -351,6 +392,13 @@
     
     
       <a href="graphnet.data.utilities.random.html" class="md-nav__link">random</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.utilities.sqlite_utilities.html" class="md-nav__link">sqlite_utilities</a>
       
     
     </li>
@@ -400,7 +448,28 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.data.writers.html" class="md-nav__link">writers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.data.constants.html" class="md-nav__link">constants</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.curated_datamodule.html" class="md-nav__link">curated_datamodule</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.data.dataclasses.html" class="md-nav__link">dataclasses</a>
       
     
     </li>
@@ -421,17 +490,17 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.filters.html" class="md-nav__link">filters</a>
+      <a href="graphnet.data.datamodule.html" class="md-nav__link">datamodule</a>
       
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.data.pipeline.html" class="md-nav__link">pipeline</a>
+      <a href="graphnet.datasets.html" class="md-nav__link">datasets</a>
       
-    
-    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -444,14 +513,14 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      <a href="graphnet.exceptions.html" class="md-nav__link">exceptions</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
       
     
     </li>
@@ -516,7 +585,7 @@
 <p>Utilities for resolving string-based selections to event indices.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.data.utilities.string_selection_resolver.StringSelectionResolver">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.utilities.string_selection_resolver.</span></span><span class="sig-name descname"><span class="pre">StringSelectionResolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/string_selection_resolver.html#StringSelectionResolver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.data.utilities.string_selection_resolver.</span></span><span class="sig-name descname"><span class="pre">StringSelectionResolver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index_column</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_cache</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/data/utilities/string_selection_resolver.html#StringSelectionResolver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.data.utilities.string_selection_resolver.StringSelectionResolver" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="graphnet.utilities.logging.html#graphnet.utilities.logging.Logger" title="graphnet.utilities.logging.Logger"><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></a></p>
 <p>Resolve string-based selection to event indices.</p>
 <p>String-based selection, using in <cite>DatasetConfig</cite>, is a very flexible way of
@@ -559,10 +628,10 @@ selection:</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dataset</strong> (<a class="reference internal" href="graphnet.data.dataset.dataset.html#graphnet.data.dataset.dataset.Dataset" title="graphnet.data.dataset.dataset.Dataset"><em>Dataset</em></a>) – </p></li>
-<li><p><strong>index_column</strong> (<em>str</em>) – </p></li>
-<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>) – </p></li>
-<li><p><strong>use_cache</strong> (<em>bool</em>) – </p></li>
+<li><p><strong>dataset</strong> (<a class="reference internal" href="graphnet.data.dataset.dataset.html#graphnet.data.dataset.dataset.Dataset" title="graphnet.data.dataset.dataset.Dataset"><em>Dataset</em></a>)</p></li>
+<li><p><strong>index_column</strong> (<em>str</em>)</p></li>
+<li><p><strong>seed</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>use_cache</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -576,10 +645,10 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
 <span class="pre">events</span> <span class="pre">~</span> <span class="pre">event_no</span> <span class="pre">%</span> <span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">0"</span> <span class="pre">"20%</span> <span class="pre">random</span> <span class="pre">events</span> <span class="pre">~</span> <span class="pre">event_no</span> <span class="pre">%</span> <span class="pre">5</span> <span class="pre">&gt;</span> <span class="pre">0"</span> <span class="pre">`</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>selection</strong> (<em>str</em>) – </p>
+<dd class="field-even"><p><strong>selection</strong> (<em>str</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -596,7 +665,7 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="graphnet.data.utilities.random.html" title="random"
+            <a href="graphnet.data.utilities.sqlite_utilities.html" title="sqlite_utilities"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -605,17 +674,17 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> random </span>
+                      class="md-footer-nav__direction"> "Previous" </span> sqlite_utilities </span>
               </div>
             </a>
           
           
-            <a href="graphnet.data.constants.html" title="constants"
+            <a href="graphnet.data.writers.html" title="writers"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> constants </span>
+                class="md-footer-nav__direction"> "Next" </span> writers </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -629,11 +698,11 @@ fixed number of events to randomly sample, e.g., <code class="docutils literal n
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

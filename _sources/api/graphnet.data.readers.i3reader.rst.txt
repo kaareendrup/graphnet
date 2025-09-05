@@ -1,0 +1,8 @@
+
+i3reader
+========
+
+.. automodule:: graphnet.data.readers.i3reader
+   :members:
+   :show-inheritance:
+   :undoc-members:

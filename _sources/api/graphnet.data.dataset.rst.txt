@@ -5,8 +5,8 @@ dataset
 
 .. automodule:: graphnet.data.dataset
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Subpackages |end-h2|
@@ -24,6 +24,7 @@ dataset
    :maxdepth: 2
 
    graphnet.data.dataset.dataset
+   graphnet.data.dataset.samplers
 
 
 

@@ -1,0 +1,8 @@
+
+cleaning\_module
+================
+
+.. automodule:: graphnet.deployment.icecube.cleaning_module
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -120,13 +120,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dataset_config" href="graphnet.utilities.config.dataset_config.html" />
@@ -286,14 +285,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -312,6 +339,13 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.datasets.html" class="md-nav__link">datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
       
     
@@ -319,14 +353,14 @@
     <li class="md-nav__item">
     
     
-      <a href="graphnet.models.html" class="md-nav__link">models</a>
+      <a href="graphnet.exceptions.html" class="md-nav__link">exceptions</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      <a href="graphnet.models.html" class="md-nav__link">models</a>
       
     
     </li>
@@ -460,6 +494,13 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.utilities.deprecation_tools.html" class="md-nav__link">deprecation_tools</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.utilities.filesys.html" class="md-nav__link">filesys</a>
       
     
@@ -538,7 +579,7 @@
 <p>Bases for all configurable classes in  <cite>graphnet</cite>.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.configurable.</span></span><span class="sig-name descname"><span class="pre">Configurable</span></span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">graphnet.utilities.config.configurable.</span></span><span class="sig-name descname"><span class="pre">Configurable</span></span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Base class for all configurable classes in graphnet.</p>
 <p>Construct <cite>Configurable</cite>.</p>
@@ -546,7 +587,7 @@
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.config">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><span class="pre">BaseConfig</span></a></em><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.config" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><span class="pre">BaseConfig</span></a></em><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.config" title="Link to this definition">¶</a></dt>
 <dd><p>Return configuration to re-create the instance.</p>
 </dd></dl>
 <dl class="py method">
@@ -555,23 +596,23 @@
 <dd><p>Save Config to <cite>path</cite> as YAML file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>path</strong> (<em>str</em>) – </p>
+<dd class="field-even"><p><strong>path</strong> (<em>str</em>)</p>
 </dd>
 </dl>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="graphnet.utilities.config.configurable.Configurable.from_config">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.from_config" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/utilities/config/configurable.html#Configurable.from_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.utilities.config.configurable.Configurable.from_config" title="Link to this definition">¶</a></dt>
 <dd><p>Construct instance from <cite>source</cite> configuration.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span></p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>source</strong> (<a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><em>BaseConfig</em></a><em> | </em><em>str</em>) – </p>
+<dd class="field-even"><p><strong>source</strong> (<a class="reference internal" href="graphnet.utilities.config.base_config.html#graphnet.utilities.config.base_config.BaseConfig" title="graphnet.utilities.config.base_config.BaseConfig"><em>BaseConfig</em></a><em> | </em><em>str</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -621,11 +662,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

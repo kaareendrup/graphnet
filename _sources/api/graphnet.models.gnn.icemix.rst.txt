@@ -1,0 +1,8 @@
+
+icemix
+======
+
+.. automodule:: graphnet.models.gnn.icemix
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -5,8 +5,8 @@ utilities
 
 .. automodule:: graphnet.utilities
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Subpackages |end-h2|
@@ -24,6 +24,7 @@ utilities
 
    graphnet.utilities.argparse
    graphnet.utilities.decorators
+   graphnet.utilities.deprecation_tools
    graphnet.utilities.filesys
    graphnet.utilities.imports
    graphnet.utilities.logging

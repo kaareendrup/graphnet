@@ -119,13 +119,12 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css?v=79c92029" />
     <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../../../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   
@@ -281,14 +280,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../install.html" class="md-nav__link">Install</a>
+      <a href="../../../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../../../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../../../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -327,7 +354,7 @@
 
 <div class="viewcode-block" id="FEATURES">
 <a class="viewcode-back" href="../../../api/graphnet.data.constants.html#graphnet.data.constants.FEATURES">[docs]</a>
-<span class="k">class</span> <span class="nc">FEATURES</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FEATURES</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Namespace for standard names working with `I3FeatureExtractor`."""</span>
 
     <span class="n">ICECUBE86</span> <span class="o">=</span> <span class="p">[</span>
@@ -355,18 +382,41 @@
         <span class="s2">"sensor_pos_z"</span><span class="p">,</span>
         <span class="s2">"t"</span><span class="p">,</span>
     <span class="p">]</span>
-    <span class="n">KAGGLE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">,</span> <span class="s2">"charge"</span><span class="p">,</span> <span class="s2">"auxiliary"</span><span class="p">]</span></div>
+    <span class="n">SNOWSTORM</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"dom_x"</span><span class="p">,</span>
+        <span class="s2">"dom_y"</span><span class="p">,</span>
+        <span class="s2">"dom_z"</span><span class="p">,</span>
+        <span class="s2">"charge"</span><span class="p">,</span>
+        <span class="s2">"dom_time"</span><span class="p">,</span>
+        <span class="s2">"width"</span><span class="p">,</span>
+        <span class="s2">"pmt_area"</span><span class="p">,</span>
+        <span class="s2">"rde"</span><span class="p">,</span>
+        <span class="s2">"is_bright_dom"</span><span class="p">,</span>
+        <span class="s2">"is_bad_dom"</span><span class="p">,</span>
+        <span class="s2">"is_saturated_dom"</span><span class="p">,</span>
+        <span class="s2">"is_errata_dom"</span><span class="p">,</span>
+        <span class="s2">"event_time"</span><span class="p">,</span>
+        <span class="s2">"hlc"</span><span class="p">,</span>
+        <span class="s2">"awtd"</span><span class="p">,</span>
+        <span class="s2">"string"</span><span class="p">,</span>
+        <span class="s2">"pmt_number"</span><span class="p">,</span>
+        <span class="s2">"dom_number"</span><span class="p">,</span>
+        <span class="s2">"dom_type"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">KAGGLE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"z"</span><span class="p">,</span> <span class="s2">"time"</span><span class="p">,</span> <span class="s2">"charge"</span><span class="p">,</span> <span class="s2">"auxiliary"</span><span class="p">]</span>
+    <span class="n">LIQUIDO</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"sipm_x"</span><span class="p">,</span> <span class="s2">"sipm_y"</span><span class="p">,</span> <span class="s2">"sipm_z"</span><span class="p">,</span> <span class="s2">"t"</span><span class="p">]</span></div>
 
 
 
 <div class="viewcode-block" id="TRUTH">
 <a class="viewcode-back" href="../../../api/graphnet.data.constants.html#graphnet.data.constants.TRUTH">[docs]</a>
-<span class="k">class</span> <span class="nc">TRUTH</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TRUTH</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Namespace for standard names working with `I3TruthExtractor`."""</span>
 
     <span class="n">ICECUBE86</span> <span class="o">=</span> <span class="p">[</span>
         <span class="s2">"energy"</span><span class="p">,</span>
         <span class="s2">"energy_track"</span><span class="p">,</span>
+        <span class="s2">"energy_cascade"</span><span class="p">,</span>
         <span class="s2">"position_x"</span><span class="p">,</span>
         <span class="s2">"position_y"</span><span class="p">,</span>
         <span class="s2">"position_z"</span><span class="p">,</span>
@@ -374,10 +424,11 @@
         <span class="s2">"zenith"</span><span class="p">,</span>
         <span class="s2">"pid"</span><span class="p">,</span>
         <span class="s2">"elasticity"</span><span class="p">,</span>
-        <span class="s2">"sim_type"</span><span class="p">,</span>
         <span class="s2">"interaction_type"</span><span class="p">,</span>
         <span class="s2">"interaction_time"</span><span class="p">,</span>  <span class="c1"># Added for vertex reconstruction</span>
         <span class="s2">"inelasticity"</span><span class="p">,</span>
+        <span class="s2">"visible_inelasticity"</span><span class="p">,</span>
+        <span class="s2">"visible_energy"</span><span class="p">,</span>
         <span class="s2">"stopped_muon"</span><span class="p">,</span>
     <span class="p">]</span>
     <span class="n">DEEPCORE</span> <span class="o">=</span> <span class="n">ICECUBE86</span>
@@ -410,7 +461,68 @@
         <span class="s2">"primary_hadron_1_energy"</span><span class="p">,</span>
         <span class="s2">"total_energy"</span><span class="p">,</span>
     <span class="p">]</span>
-    <span class="n">KAGGLE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"zenith"</span><span class="p">,</span> <span class="s2">"azimuth"</span><span class="p">]</span></div>
+    <span class="n">SNOWSTORM</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"energy"</span><span class="p">,</span>
+        <span class="s2">"position_x"</span><span class="p">,</span>
+        <span class="s2">"position_y"</span><span class="p">,</span>
+        <span class="s2">"position_z"</span><span class="p">,</span>
+        <span class="s2">"azimuth"</span><span class="p">,</span>
+        <span class="s2">"zenith"</span><span class="p">,</span>
+        <span class="s2">"pid"</span><span class="p">,</span>
+        <span class="s2">"event_time"</span><span class="p">,</span>
+        <span class="s2">"interaction_type"</span><span class="p">,</span>
+        <span class="s2">"elasticity"</span><span class="p">,</span>
+        <span class="s2">"RunID"</span><span class="p">,</span>
+        <span class="s2">"SubrunID"</span><span class="p">,</span>
+        <span class="s2">"EventID"</span><span class="p">,</span>
+        <span class="s2">"SubEventID"</span><span class="p">,</span>
+        <span class="s2">"dbang_decay_length"</span><span class="p">,</span>
+        <span class="s2">"track_length"</span><span class="p">,</span>
+        <span class="s2">"stopped_muon"</span><span class="p">,</span>
+        <span class="s2">"energy_track"</span><span class="p">,</span>
+        <span class="s2">"energy_cascade"</span><span class="p">,</span>
+        <span class="s2">"inelasticity"</span><span class="p">,</span>
+        <span class="s2">"DeepCoreFilter_13"</span><span class="p">,</span>
+        <span class="s2">"CascadeFilter_13"</span><span class="p">,</span>
+        <span class="s2">"MuonFilter_13"</span><span class="p">,</span>
+        <span class="s2">"OnlineL2Filter_17"</span><span class="p">,</span>
+        <span class="s2">"L3_oscNext_bool"</span><span class="p">,</span>
+        <span class="s2">"L4_oscNext_bool"</span><span class="p">,</span>
+        <span class="s2">"L5_oscNext_bool"</span><span class="p">,</span>
+        <span class="s2">"L6_oscNext_bool"</span><span class="p">,</span>
+        <span class="s2">"L7_oscNext_bool"</span><span class="p">,</span>
+        <span class="s2">"Homogenized_QTot"</span><span class="p">,</span>
+        <span class="s2">"MCLabelClassification"</span><span class="p">,</span>
+        <span class="s2">"MCLabelCoincidentMuons"</span><span class="p">,</span>
+        <span class="s2">"MCLabelBgMuonMCPE"</span><span class="p">,</span>
+        <span class="s2">"MCLabelBgMuonMCPECharge"</span><span class="p">,</span>
+        <span class="s2">"GNLabelTrackEnergyDeposited"</span><span class="p">,</span>
+        <span class="s2">"GNLabelTrackEnergyOnEntrance"</span><span class="p">,</span>
+        <span class="s2">"GNLabelTrackEnergyOnEntrancePrimary"</span><span class="p">,</span>
+        <span class="s2">"GNLabelTrackEnergyDepositedPrimary"</span><span class="p">,</span>
+        <span class="s2">"GNLabelEnergyPrimary"</span><span class="p">,</span>
+        <span class="s2">"GNLabelCascadeEnergyDepositedPrimary"</span><span class="p">,</span>
+        <span class="s2">"GNLabelCascadeEnergyDeposited"</span><span class="p">,</span>
+        <span class="s2">"GNLabelEnergyDepositedTotal"</span><span class="p">,</span>
+        <span class="s2">"GNLabelEnergyDepositedPrimary"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEInIceParticleIsChild"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEInIceParticleDistance"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEInIceParticleEFraction"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEInIceParticleEOnEntrance"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEDaughterDistance"</span><span class="p">,</span>
+        <span class="s2">"GNLabelHighestEDaughterEFraction"</span><span class="p">,</span>
+    <span class="p">]</span>
+    <span class="n">KAGGLE</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"zenith"</span><span class="p">,</span> <span class="s2">"azimuth"</span><span class="p">]</span>
+    <span class="n">LIQUIDO</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">"vertex_x"</span><span class="p">,</span>
+        <span class="s2">"vertex_y"</span><span class="p">,</span>
+        <span class="s2">"vertex_z"</span><span class="p">,</span>
+        <span class="s2">"zenith"</span><span class="p">,</span>
+        <span class="s2">"azimuth"</span><span class="p">,</span>
+        <span class="s2">"interaction_time"</span><span class="p">,</span>
+        <span class="s2">"energy"</span><span class="p">,</span>
+        <span class="s2">"pid"</span><span class="p">,</span>
+    <span class="p">]</span></div>
 
 </pre></div>
 
@@ -432,11 +544,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

@@ -5,8 +5,8 @@ sqlite
 
 .. automodule:: graphnet.data.sqlite
    :members:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 
 |start-h2| Submodules |end-h2|
@@ -15,8 +15,7 @@ sqlite
 .. toctree::
    :maxdepth: 2
 
-   graphnet.data.sqlite.sqlite_dataconverter
-   graphnet.data.sqlite.sqlite_utilities
+   graphnet.data.sqlite.deprecated_methods
 
 
 

@@ -1,0 +1,8 @@
+
+parquet\_extractor
+==================
+
+.. automodule:: graphnet.data.extractors.internal.parquet_extractor
+   :members:
+   :show-inheritance:
+   :undoc-members:

@@ -120,16 +120,15 @@
   }
 
 </style>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="icon" href="../_static/favicon.svg"/>
-    <link rel="author" title="About these documents" href="../about.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pisa" href="graphnet.pisa.html" />
+    <link rel="next" title="training" href="graphnet.training.html" />
     <link rel="prev" title="standard_model" href="graphnet.models.standard_model.html" />
   
    
@@ -285,14 +284,42 @@
     <li class="md-nav__item">
     
     
-      <a href="../install.html" class="md-nav__link">Install</a>
+      <a href="../installation/install.html" class="md-nav__link">Installation</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../contribute.html" class="md-nav__link">Contribute</a>
+      <a href="../models/models.html" class="md-nav__link">Models In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../datasets/datasets.html" class="md-nav__link">Datasets In GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_conversion/data_conversion.html" class="md-nav__link">Data Conversion in GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../integration/integration.html" class="md-nav__link">Integrating New Experiments into GraphNeT</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../contribute/contribute.html" class="md-nav__link">Contributing To GraphNeT</a>
       
     
     </li>
@@ -311,7 +338,21 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.datasets.html" class="md-nav__link">datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.deployment.html" class="md-nav__link">deployment</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.exceptions.html" class="md-nav__link">exceptions</a>
       
     
     </li>
@@ -324,6 +365,13 @@
     
     
       <a href="graphnet.models.components.html" class="md-nav__link">components</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.data_representation.html" class="md-nav__link">data_representation</a>
       
     
     </li>
@@ -351,7 +399,21 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.models.rnn.html" class="md-nav__link">rnn</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.models.task.html" class="md-nav__link">task</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.transformer.html" class="md-nav__link">transformer</a>
       
     
     </li>
@@ -365,7 +427,28 @@
     <li class="md-nav__item">
     
     
+      <a href="graphnet.models.easy_model.html" class="md-nav__link">easy_model</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="graphnet.models.model.html" class="md-nav__link">model</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.normalizing_flow.html" class="md-nav__link">normalizing_flow</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="graphnet.models.standard_averaged_model.html" class="md-nav__link">standard_averaged_model</a>
       
     
     </li>
@@ -395,6 +478,16 @@
         <li class="md-nav__item"><a href="#graphnet.models.utils.calculate_distance_matrix" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">calculate_distance_matrix()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.utils.knn_graph_batch" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">knn_graph_batch()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.array_to_sequence" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">array_to_sequence()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.get_fields" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_fields()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.full_edge_index" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">full_edge_index()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.add_full_rrwp" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">add_full_rrwp()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.get_rw_landing_probs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_rw_landing_probs()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -421,16 +514,44 @@
       <a href="#graphnet.models.utils.knn_graph_batch" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">knn_graph_batch()</span></code></a>
       
     
-    </li></ul>
+    </li>
+    <li class="md-nav__item">
     
-    </li></ul>
+    
+      <a href="#graphnet.models.utils.array_to_sequence" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">array_to_sequence()</span></code></a>
+      
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="graphnet.pisa.html" class="md-nav__link">pisa</a>
+      <a href="#graphnet.models.utils.get_fields" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_fields()</span></code></a>
       
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.utils.full_edge_index" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">full_edge_index()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.utils.add_full_rrwp" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">add_full_rrwp()</span></code></a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#graphnet.models.utils.get_rw_landing_probs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_rw_landing_probs()</span></code></a>
+      
+    
+    </li></ul>
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -477,6 +598,16 @@
         <li class="md-nav__item"><a href="#graphnet.models.utils.calculate_distance_matrix" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">calculate_distance_matrix()</span></code></a>
         </li>
         <li class="md-nav__item"><a href="#graphnet.models.utils.knn_graph_batch" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">knn_graph_batch()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.array_to_sequence" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">array_to_sequence()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.get_fields" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_fields()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.full_edge_index" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">full_edge_index()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.add_full_rrwp" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">add_full_rrwp()</span></code></a>
+        </li>
+        <li class="md-nav__item"><a href="#graphnet.models.utils.get_rw_landing_probs" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">get_rw_landing_probs()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -501,16 +632,16 @@ variables in nodes. Notice that this calculator assumes a special order of
 input features in x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</p>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span></p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Tuple, each element with shape [batch_size,1].</p>
 </dd>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>Tensor</em>) – </p></li>
-<li><p><strong>edge_index</strong> (<em>LongTensor</em>) – </p></li>
-<li><p><strong>batch</strong> (<em>Batch</em>) – </p></li>
+<li><p><strong>x</strong> (<em>Tensor</em>)</p></li>
+<li><p><strong>edge_index</strong> (<em>LongTensor</em>)</p></li>
+<li><p><strong>batch</strong> (<em>Batch</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -521,10 +652,10 @@ input features in x.</p>
 <dd><p>Calculate the matrix of pairwise distances between pulses.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>xyz_coords</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>) – (x,y,z)-coordinates of pulses, of shape [nb_doms, 3].</p>
+<dd class="field-odd"><p><strong>xyz_coords</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span>) – (x,y,z)-coordinates of pulses, of shape [nb_doms, 3].</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Matrix of pairwise distances, of shape [nb_doms, nb_doms]</p>
@@ -538,17 +669,154 @@ input features in x.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>batch</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code>) – Batch of events.</p></li>
-<li><p><strong>k</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – A list of k’s.</p></li>
-<li><p><strong>columns</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – The columns of Data.x used for computing the distances. E.g.,
+<li><p><strong>batch</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></span>) – Batch of events.</p></li>
+<li><p><strong>k</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – A list of k’s.</p></li>
+<li><p><strong>columns</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – The columns of Data.x used for computing the distances. E.g.,
 Data.x[:,[0,1,2]]</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Batch</span></code></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Returns the same batch of events, but with updated edges.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.utils.array_to_sequence">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.utils.</span></span><span class="sig-name descname"><span class="pre">array_to_sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">excluding_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/utils.html#array_to_sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.utils.array_to_sequence" title="Link to this definition">¶</a></dt>
+<dd><p>Convert <cite>x</cite> of shape [n,d] into a padded sequence of shape [B, L, D].</p>
+<blockquote>
+<div><p>Where B is the batch size, L is the sequence length and D is the
+features for each time step.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span>) – array-like tensor with shape <cite>[n,d]</cite> where <cite>n</cite> is the total number</p></li>
+<li><p><strong>features.</strong> (<em>of pulses in the batch and d is the number</em><em> of  </em><em>node</em>)</p></li>
+<li><p><strong>batch_idx</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">LongTensor</span></code></span>) – a LongTensor identifying which row in <cite>x</cite> belongs to
+which training example.
+E.g. <cite>torch_geometric.data.Batch.batch</cite>.</p></li>
+<li><p><strong>padding_value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>) – The value to use for padding.</p></li>
+<li><p><strong>excluding_value</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">inf</span></code>) – This parameter represents a unique value that should
+not be present in the input tensor ‘x’</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p>Padded sequence with dimensions  [B, L, D].
+mask: A tensor that identifies masked entries in <cite>x</cite>.</p>
+<blockquote>
+<div><p>E.g. : <cite>masked_entries = x[mask]</cite></p>
+</div></blockquote>
+<p>seq_length: A tensor containing the number of pulses in each event.</p>
+</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>x</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.utils.get_fields">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.utils.</span></span><span class="sig-name descname"><span class="pre">get_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/utils.html#get_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.utils.get_fields" title="Link to this definition">¶</a></dt>
+<dd><p>Extract named fields in Data object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span></p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>data</strong> (<em>Data</em><em> | </em><em>List</em><em>[</em><em>Data</em><em>]</em>)</p></li>
+<li><p><strong>fields</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.utils.full_edge_index">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.utils.</span></span><span class="sig-name descname"><span class="pre">full_edge_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/utils.html#full_edge_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.utils.full_edge_index" title="Link to this definition">¶</a></dt>
+<dd><p>Return the full batched sparse adjacency matrices given by edge indices.</p>
+<p>Return batched sparse adjacency matrices with exactly those edges that
+are not in the input <cite>edge_index</cite> while ignoring self-loops. Implementation
+inspired by <cite>torch_geometric.utils.to_dense_adj</cite>.</p>
+<p>Original code:
+<a class="reference external" href="https://github.com/LiamMa/GRIT/blob/main/grit/encoder/rrwp_encoder.py">https://github.com/LiamMa/GRIT/blob/main/grit/encoder/rrwp_encoder.py</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>edge_index</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span>) – The edge indices.</p></li>
+<li><p><strong>batch</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Batch vector, which assigns each node to a specific example.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complementary edge index.</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.utils.add_full_rrwp">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.utils.</span></span><span class="sig-name descname"><span class="pre">add_full_rrwp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">walk_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name_abs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name_rel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_identity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/utils.html#add_full_rrwp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.utils.add_full_rrwp" title="Link to this definition">¶</a></dt>
+<dd><p>Add relative random walk probabilities.</p>
+<p>Original code:
+<a class="reference external" href="https://github.com/LiamMa/GRIT/blob/main/grit/transform/rrwp.py">https://github.com/LiamMa/GRIT/blob/main/grit/transform/rrwp.py</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></span>) – Input data.</p></li>
+<li><p><strong>walk_length</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">8</span></code>) – Number of random walks for encoding.</p></li>
+<li><p><strong>attr_name_abs</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">'rrwp'</span></code>) – Absolute position encoding name.</p></li>
+<li><p><strong>attr_name_rel</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">'rrwp'</span></code>) – Relative position encoding name.</p></li>
+<li><p><strong>add_identity</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">True</span></code>) – Add identity matrix to position encoding.</p></li>
+<li><p><strong>spd</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">False</span></code>) – Use shortest path distances.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Data</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py function">
+<dt class="sig sig-object py" id="graphnet.models.utils.get_rw_landing_probs">
+<span class="sig-prename descclassname"><span class="pre">graphnet.models.utils.</span></span><span class="sig-name descname"><span class="pre">get_rw_landing_probs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ksteps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_weight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_nodes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">space_dim</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/graphnet/models/utils.html#get_rw_landing_probs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#graphnet.models.utils.get_rw_landing_probs" title="Link to this definition">¶</a></dt>
+<dd><p>Compute Random Walk landing probabilities for given list of K steps.</p>
+<p>Original code:
+<a class="reference external" href="https://github.com/ETH-DISCO/Benchmarking-PEs">https://github.com/ETH-DISCO/Benchmarking-PEs</a>
+:type ksteps: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code></span>
+:param ksteps: List of k-steps for which to compute the RW landings
+:type edge_index: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span>
+:param edge_index: PyG sparse representation of the graph
+:type edge_weight: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>
+:param edge_weight: (optional) Edge weights
+:type num_nodes: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>
+:param num_nodes: (optional) Number of nodes in the graph
+:type space_dim: <span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">0</span></code>
+:param space_dim: (optional) Estimated dimensionality of the space. Used to</p>
+<blockquote>
+<div><p>correct the random-walk diagonal by a factor <cite>k^(space_dim/2)</cite>.
+In euclidean space, this correction means that the height of
+the gaussian distribution stays almost constant across the number
+of steps, if <cite>space_dim</cite> is the dimension of the euclidean space.</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>2D Tensor with shape (num_nodes, len(ksteps)) with RW landing probs</p>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ksteps</strong> (<em>List</em>)</p></li>
+<li><p><strong>edge_index</strong> (<em>Tensor</em>)</p></li>
+<li><p><strong>edge_weight</strong> (<em>Tensor</em>)</p></li>
+<li><p><strong>num_nodes</strong> (<em>int</em><em> | </em><em>None</em>)</p></li>
+<li><p><strong>space_dim</strong> (<em>int</em>)</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -578,12 +846,12 @@ Data.x[:,[0,1,2]]</p></li>
             </a>
           
           
-            <a href="graphnet.pisa.html" title="pisa"
+            <a href="graphnet.training.html" title="training"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> pisa </span>
+                class="md-footer-nav__direction"> "Next" </span> training </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -597,11 +865,11 @@ Data.x[:,[0,1,2]]</p></li>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2021-2023, GraphNeT team.
+              &#169; Copyright 2021-2025, GraphNeT team.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
